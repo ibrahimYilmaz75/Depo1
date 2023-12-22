@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YilmazKafeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblFirmalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isim" Type="nvarchar" MaxLength="50" />
+          <Property Name="sektor" Type="nvarchar" MaxLength="50" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="adres" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblMalzeme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personel" Type="int" />
+          <Property Name="firma" Type="int" />
+          <Property Name="urun" Type="nvarchar" MaxLength="50" />
+          <Property Name="fiyat" Type="nvarchar" MaxLength="50" />
+          <Property Name="miktar" Type="int" />
+          <Property Name="tarih" Type="date" />
+        </EntityType>
+        <EntityType Name="tblPersonel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdiSoyadi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblYiyecek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personel" Type="int" />
+          <Property Name="firma" Type="int" />
+          <Property Name="urun" Type="nvarchar" MaxLength="50" />
+          <Property Name="fiyat" Type="nvarchar" MaxLength="50" />
+          <Property Name="miktar" Type="int" />
+          <Property Name="tarih" Type="date" />
+        </EntityType>
+        <Association Name="FK_tblMalzeme_TblFirmalar">
+          <End Role="TblFirmalar" Type="Self.TblFirmalar" Multiplicity="0..1" />
+          <End Role="tblMalzeme" Type="Self.tblMalzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblMalzeme">
+              <PropertyRef Name="firma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMalzeme_tblPersonel">
+          <End Role="tblPersonel" Type="Self.tblPersonel" Multiplicity="0..1" />
+          <End Role="tblMalzeme" Type="Self.tblMalzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblMalzeme">
+              <PropertyRef Name="personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblYiyecek_TblFirmalar">
+          <End Role="TblFirmalar" Type="Self.TblFirmalar" Multiplicity="0..1" />
+          <End Role="tblYiyecek" Type="Self.tblYiyecek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblYiyecek">
+              <PropertyRef Name="firma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblYiyecek_tblPersonel">
+          <End Role="tblPersonel" Type="Self.tblPersonel" Multiplicity="0..1" />
+          <End Role="tblYiyecek" Type="Self.tblYiyecek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblYiyecek">
+              <PropertyRef Name="personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YilmazKafeModelStoreContainer">
+          <EntitySet Name="TblFirmalar" EntityType="Self.TblFirmalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMalzeme" EntityType="Self.tblMalzeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPersonel" EntityType="Self.tblPersonel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblYiyecek" EntityType="Self.tblYiyecek" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblMalzeme_TblFirmalar" Association="Self.FK_tblMalzeme_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalar" />
+            <End Role="tblMalzeme" EntitySet="tblMalzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMalzeme_tblPersonel" Association="Self.FK_tblMalzeme_tblPersonel">
+            <End Role="tblPersonel" EntitySet="tblPersonel" />
+            <End Role="tblMalzeme" EntitySet="tblMalzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblYiyecek_TblFirmalar" Association="Self.FK_tblYiyecek_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalar" />
+            <End Role="tblYiyecek" EntitySet="tblYiyecek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblYiyecek_tblPersonel" Association="Self.FK_tblYiyecek_tblPersonel">
+            <End Role="tblPersonel" EntitySet="tblPersonel" />
+            <End Role="tblYiyecek" EntitySet="tblYiyecek" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YilmazKafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblFirmalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sektor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMalzeme" Relationship="YilmazKafeModel.FK_tblMalzeme_TblFirmalar" FromRole="TblFirmalar" ToRole="tblMalzeme" />
+          <NavigationProperty Name="tblYiyecek" Relationship="YilmazKafeModel.FK_tblYiyecek_TblFirmalar" FromRole="TblFirmalar" ToRole="tblYiyecek" />
+        </EntityType>
+        <EntityType Name="tblMalzeme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="miktar" Type="Int32" />
+          <Property Name="tarih" Type="DateTime" Precision="0" />
+          <Property Name="personel" Type="Int32" />
+          <Property Name="firma" Type="Int32" />
+          <NavigationProperty Name="TblFirmalar" Relationship="YilmazKafeModel.FK_tblMalzeme_TblFirmalar" FromRole="tblMalzeme" ToRole="TblFirmalar" />
+          <NavigationProperty Name="tblPersonel" Relationship="YilmazKafeModel.FK_tblMalzeme_tblPersonel" FromRole="tblMalzeme" ToRole="tblPersonel" />
+        </EntityType>
+        <EntityType Name="tblPersonel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdiSoyadi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblMalzeme" Relationship="YilmazKafeModel.FK_tblMalzeme_tblPersonel" FromRole="tblPersonel" ToRole="tblMalzeme" />
+          <NavigationProperty Name="tblYiyecek" Relationship="YilmazKafeModel.FK_tblYiyecek_tblPersonel" FromRole="tblPersonel" ToRole="tblYiyecek" />
+        </EntityType>
+        <EntityType Name="tblYiyecek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="miktar" Type="Int32" />
+          <Property Name="tarih" Type="DateTime" Precision="0" />
+          <Property Name="personel" Type="Int32" />
+          <Property Name="firma" Type="Int32" />
+          <NavigationProperty Name="TblFirmalar" Relationship="YilmazKafeModel.FK_tblYiyecek_TblFirmalar" FromRole="tblYiyecek" ToRole="TblFirmalar" />
+          <NavigationProperty Name="tblPersonel" Relationship="YilmazKafeModel.FK_tblYiyecek_tblPersonel" FromRole="tblYiyecek" ToRole="tblPersonel" />
+        </EntityType>
+        <EntityContainer Name="YilmazKafeEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblFirmalar" EntityType="Self.TblFirmalar" />
+          <EntitySet Name="tblMalzeme" EntityType="Self.tblMalzeme" />
+          <EntitySet Name="tblPersonel" EntityType="Self.tblPersonel" />
+          <EntitySet Name="tblYiyecek" EntityType="Self.tblYiyecek" />
+          <AssociationSet Name="FK_tblMalzeme_TblFirmalar" Association="YilmazKafeModel.FK_tblMalzeme_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalar" />
+            <End Role="tblMalzeme" EntitySet="tblMalzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblYiyecek_TblFirmalar" Association="YilmazKafeModel.FK_tblYiyecek_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalar" />
+            <End Role="tblYiyecek" EntitySet="tblYiyecek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMalzeme_tblPersonel" Association="YilmazKafeModel.FK_tblMalzeme_tblPersonel">
+            <End Role="tblPersonel" EntitySet="tblPersonel" />
+            <End Role="tblMalzeme" EntitySet="tblMalzeme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblYiyecek_tblPersonel" Association="YilmazKafeModel.FK_tblYiyecek_tblPersonel">
+            <End Role="tblPersonel" EntitySet="tblPersonel" />
+            <End Role="tblYiyecek" EntitySet="tblYiyecek" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_tblMalzeme_TblFirmalar">
+          <End Type="YilmazKafeModel.TblFirmalar" Role="TblFirmalar" Multiplicity="0..1" />
+          <End Type="YilmazKafeModel.tblMalzeme" Role="tblMalzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblMalzeme">
+              <PropertyRef Name="firma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblYiyecek_TblFirmalar">
+          <End Type="YilmazKafeModel.TblFirmalar" Role="TblFirmalar" Multiplicity="0..1" />
+          <End Type="YilmazKafeModel.tblYiyecek" Role="tblYiyecek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblYiyecek">
+              <PropertyRef Name="firma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMalzeme_tblPersonel">
+          <End Type="YilmazKafeModel.tblPersonel" Role="tblPersonel" Multiplicity="0..1" />
+          <End Type="YilmazKafeModel.tblMalzeme" Role="tblMalzeme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblMalzeme">
+              <PropertyRef Name="personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblYiyecek_tblPersonel">
+          <End Type="YilmazKafeModel.tblPersonel" Role="tblPersonel" Multiplicity="0..1" />
+          <End Type="YilmazKafeModel.tblYiyecek" Role="tblYiyecek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPersonel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblYiyecek">
+              <PropertyRef Name="personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YilmazKafeModelStoreContainer" CdmEntityContainer="YilmazKafeEntities3">
+          <EntitySetMapping Name="TblFirmalar">
+            <EntityTypeMapping TypeName="YilmazKafeModel.TblFirmalar">
+              <MappingFragment StoreEntitySet="TblFirmalar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="sektor" ColumnName="sektor" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMalzeme">
+            <EntityTypeMapping TypeName="YilmazKafeModel.tblMalzeme">
+              <MappingFragment StoreEntitySet="tblMalzeme">
+                <ScalarProperty Name="firma" ColumnName="firma" />
+                <ScalarProperty Name="personel" ColumnName="personel" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="urun" ColumnName="urun" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersonel">
+            <EntityTypeMapping TypeName="YilmazKafeModel.tblPersonel">
+              <MappingFragment StoreEntitySet="tblPersonel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdiSoyadi" ColumnName="AdiSoyadi" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblYiyecek">
+            <EntityTypeMapping TypeName="YilmazKafeModel.tblYiyecek">
+              <MappingFragment StoreEntitySet="tblYiyecek">
+                <ScalarProperty Name="firma" ColumnName="firma" />
+                <ScalarProperty Name="personel" ColumnName="personel" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="miktar" ColumnName="miktar" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="urun" ColumnName="urun" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
