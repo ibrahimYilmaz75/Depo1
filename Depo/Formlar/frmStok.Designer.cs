@@ -29,38 +29,35 @@ namespace Depo.Formlar
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStok));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtUrun = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtFirma = new DevExpress.XtraEditors.TextEdit();
+            this.txtPersonel = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtFiyat = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.dtTarih = new DevExpress.XtraEditors.DateEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtMiktar = new DevExpress.XtraEditors.TextEdit();
-            this.txtPersonel = new DevExpress.XtraEditors.TextEdit();
-            this.txtFirma = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrun.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirma.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPersonel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFiyat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTarih.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTarih.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPersonel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFirma.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -77,7 +74,7 @@ namespace Depo.Formlar
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+           // this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // labelControl1
             // 
@@ -104,8 +101,6 @@ namespace Depo.Formlar
             this.groupControl1.Controls.Add(this.txtId);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.txtFiyat);
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.dtTarih);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -118,7 +113,21 @@ namespace Depo.Formlar
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(277, 292);
             this.groupControl1.TabIndex = 6;
-            this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+           // this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
+            // 
+            // txtFirma
+            // 
+            this.txtFirma.Location = new System.Drawing.Point(92, 79);
+            this.txtFirma.Name = "txtFirma";
+            this.txtFirma.Size = new System.Drawing.Size(170, 20);
+            this.txtFirma.TabIndex = 23;
+            // 
+            // txtPersonel
+            // 
+            this.txtPersonel.Location = new System.Drawing.Point(92, 54);
+            this.txtPersonel.Name = "txtPersonel";
+            this.txtPersonel.Size = new System.Drawing.Size(170, 20);
+            this.txtPersonel.TabIndex = 22;
             // 
             // labelControl7
             // 
@@ -153,34 +162,6 @@ namespace Depo.Formlar
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.Size = new System.Drawing.Size(170, 20);
             this.txtFiyat.TabIndex = 18;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.Red;
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(157, 238);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(105, 37);
-            this.simpleButton2.TabIndex = 12;
-            this.simpleButton2.Text = "Sil";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(46, 238);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(105, 37);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "Güncelle";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl5
             // 
@@ -241,20 +222,6 @@ namespace Depo.Formlar
             this.txtMiktar.Size = new System.Drawing.Size(170, 20);
             this.txtMiktar.TabIndex = 4;
             // 
-            // txtPersonel
-            // 
-            this.txtPersonel.Location = new System.Drawing.Point(92, 54);
-            this.txtPersonel.Name = "txtPersonel";
-            this.txtPersonel.Size = new System.Drawing.Size(170, 20);
-            this.txtPersonel.TabIndex = 22;
-            // 
-            // txtFirma
-            // 
-            this.txtFirma.Location = new System.Drawing.Point(92, 79);
-            this.txtFirma.Name = "txtFirma";
-            this.txtFirma.Size = new System.Drawing.Size(170, 20);
-            this.txtFirma.TabIndex = 23;
-            // 
             // frmStok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,13 +239,13 @@ namespace Depo.Formlar
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirma.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPersonel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFiyat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTarih.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtTarih.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPersonel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFirma.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,14 +257,12 @@ namespace Depo.Formlar
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtUrun;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.DateEdit dtTarih;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtMiktar;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtFiyat;
         private DevExpress.XtraEditors.LabelControl labelControl7;

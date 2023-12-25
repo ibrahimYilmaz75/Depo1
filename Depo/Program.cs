@@ -16,7 +16,7 @@ namespace Depo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formlar.loginPage());
+            Application.Run(new Form1());
         }
     }
 }
