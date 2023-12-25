@@ -179,9 +179,9 @@ namespace Depo.Formlar
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(16, 127);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(54, 16);
+            this.labelControl3.Size = new System.Drawing.Size(66, 16);
             this.labelControl3.TabIndex = 28;
-            this.labelControl3.Text = "Miktar:";
+            this.labelControl3.Text = "KG/Adet:";
             // 
             // labelControl2
             // 

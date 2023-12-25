@@ -74,7 +74,6 @@ namespace Depo.Formlar
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-           // this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // labelControl1
             // 
@@ -113,7 +112,6 @@ namespace Depo.Formlar
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(277, 292);
             this.groupControl1.TabIndex = 6;
-           // this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // txtFirma
             // 
@@ -199,11 +197,11 @@ namespace Depo.Formlar
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(18, 134);
+            this.labelControl3.Location = new System.Drawing.Point(18, 133);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(54, 16);
+            this.labelControl3.Size = new System.Drawing.Size(66, 16);
             this.labelControl3.TabIndex = 6;
-            this.labelControl3.Text = "Miktar:";
+            this.labelControl3.Text = "KG/Adet:";
             // 
             // labelControl2
             // 
